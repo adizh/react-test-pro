@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { useSelector } from "react-redux";
+import BlogsList from "./components/BlogsList";
+import Pagination from "./components/Pagination";
+import Searching from "./components/Searching";
+import styled from "styled-components";
+const Title = styled.h1`
+  text-align: center;
+  font-size: 20px;
+  margin: 20px auto;
+`;
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  const state = useSelector((state) => state.blogs);
+  return state.error ? (
+    <Title>{state.errMessage}</Title>
+  ) : (
+    <>
+      <Searching />
+      <BlogsList />
+      <Pagination />
+    </>
   );
 }
 

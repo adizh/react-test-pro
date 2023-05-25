@@ -1,13 +1,56 @@
-body {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+}
+.search-block {
+  margin: 30px auto 30px 30px;
+  display: flex;
+  gap: 10px;
+}
+.each-blog {
+  width: 30%;
+  border: 1px solid #00000050;
+  padding: 5px 5px 10px 5px;
+  height: 200px;
+  margin-top: 10px;
+}
+.expand-info {
+  width: 30%;
+  border: 1px solid #00000050;
+  padding: 5px 5px 10px 5px;
+  height: auto;
+  margin-top: 10px;
+}
+.blogs-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 5px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@media screen and (min-width: 401px) and (max-width: 700px) {
+  .expand-info {
+    width: 40%;
+  }
+  .each-blog {
+    width: 40%;
+    height: 250px;
+  }
+}
+
+@media screen and (min-width: 200px) and (max-width: 400px) {
+  .blogs-list {
+    flex-direction: column;
+  }
+  .expand-info {
+    width: 100%;
+  }
+  .each-blog {
+    width: 100%;
+  }
 }
