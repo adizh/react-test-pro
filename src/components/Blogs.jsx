@@ -63,6 +63,7 @@ function Blogs({ blog }) {
         </Button>
         {state.updatedBlogId !== blog.id ? (
           <Button onClick={() => dispatch(setUpdatedId(blog.id))}>
+            
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
